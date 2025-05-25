@@ -1,0 +1,237 @@
+/* General Styling */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #f4f6f8; /* Light grey background */
+  color: #333; /* Dark grey text for readability */
+  margin: 0;
+  padding: 15px;
+  width: 420px; /* Max width for the popup */
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  color: #1a237e; /* Dark blue for headings */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.3em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0; /* Lighter separator */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Links */
+a {
+  color: #007bff; /* Standard blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff; /* Primary button blue */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button#refreshNewTokensButton, button.remove-watchlist-token {
+    background-color: #6c757d; /* Secondary grey for less prominent actions */
+}
+button#refreshNewTokensButton:hover, button.remove-watchlist-token:hover {
+    background-color: #545b62;
+}
+
+
+/* Input Fields */
+input[type="text"] {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9em;
+}
+
+/* Main Input and Fetch Button Area */
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+.input-area input[type="text"] {
+  flex-grow: 1;
+  margin-bottom: 0; /* Remove margin as it's handled by gap */
+}
+.input-area button {
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+
+/* Meme Score Display */
+#memeScoreDisplay {
+  font-size: 1.5em; /* Larger font */
+  font-weight: bold;
+  color: #1a237e; /* Dark blue, same as headings */
+  text-align: center;
+  padding: 10px;
+  background-color: #e3f2fd; /* Light blue background */
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #bbdefb;
+}
+
+/* Sections & Info Divs */
+.data-section {
+  background-color: #ffffff; /* White background for sections */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.data-section h2, .data-section h3 {
+    margin-top: 0; /* Remove top margin for headings inside sections */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    font-size: 1.1em;
+    color: #007bff;
+}
+
+.info-item {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+.info-item strong {
+  color: #555;
+}
+
+/* Lists (Top Holders, New Tokens, Watchlist) */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 5px;
+}
+ul li {
+  padding: 8px 5px;
+  border-bottom: 1px solid #f0f0f0; /* Subtle separator for list items */
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul li:last-child {
+  border-bottom: none;
+}
+.new-token-link, .watchlist-token-link {
+  cursor: pointer;
+  color: #007bff;
+}
+.new-token-link:hover, .watchlist-token-link:hover {
+  text-decoration: underline;
+}
+
+
+/* Error Messages & Feedback */
+#errorMessage {
+  color: #d32f2f; /* Red for errors */
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  text-align: center;
+}
+#errorMessage:empty {
+    display: none; /* Hide if empty */
+}
+
+#watchlistMessage {
+  font-size: 0.9em;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin-left: 5px;
+  display: inline-block;
+}
+#watchlistMessage:empty {
+    display: none; /* Hide if empty */
+}
+#watchlistMessage.success {
+    background-color: #e8f5e9; /* Light green for success */
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+#watchlistMessage.error {
+    background-color: #ffebee; /* Light red for error */
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+
+/* Loading States */
+.loading-text {
+  color: #757575; /* Grey for loading text */
+  font-style: italic;
+  padding: 10px 0;
+}
+
+/* Checkbox Styling */
+label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Specific section adjustments */
+#topHolders ul li, #newTokensList ul li, #watchlistedTokens ul li {
+    line-height: 1.4;
+}
+#newTokensList ul li strong, #watchlistedTokens ul li strong { /* Watchlist might not have strong, but good to have */
+    font-weight: 500;
+}
+#newTokensList .new-token-link, #watchlistedTokens .watchlist-token-link {
+    margin-right: auto; /* Push remove button to the right */
+    padding-right: 10px;
+}
+#auditLink { /* Ensure audit link input is not overly wide */
+    width: calc(100% - 120px); /* Adjust based on label */
+    margin-left: 5px;
+}
+
+/* Hide the old generic token-data-container if not used */
+#token-data-container[style*="display:none"] {
+    display: none !important;
+}
+#token-data-container:not([style*="display:none"]) {
+    /* Style if it were to be used */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+}

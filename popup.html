@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solana Meme Token Analyzer</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+
+  <div class="input-area">
+    <input type="text" id="tokenAddress" placeholder="Enter Solana Token Address or Name/Symbol">
+    <button id="fetchButton">Fetch</button>
+  </div>
+  <div class="input-area">
+    <button id="addToWatchlistButton">Add to Watchlist</button>
+    <div id="watchlistMessage"></div> <!-- Will be styled by CSS based on class (success/error) -->
+  </div>
+
+  <div id="errorMessage" style="display:none;"></div> <!-- Hidden by default, shown on error -->
+
+  <div id="memeScoreDisplay">Meme Score: -</div>
+
+  <!-- Token Analysis Section -->
+  <div class="data-section" id="tokenAnalysisSection">
+    <h2>Token Analysis</h2>
+    <div class="info-item" id="tokenPrice"><strong>Price:</strong> <span>-</span></div>
+    <div class="info-item" id="marketCap"><strong>Market Cap:</strong> <span>-</span></div>
+    <div class="info-item" id="tradingVolume"><strong>24h Volume:</strong> <span>-</span></div>
+    <div class="info-item" id="liquidity"><strong>Liquidity:</strong> <span>-</span></div>
+  </div>
+
+  <!-- Tokenomics Section -->
+  <div class="data-section" id="tokenomicsSection">
+    <h2>Tokenomics</h2>
+    <div id="topHolders"><p class="loading-text">Loading Top Holders...</p></div>
+  </div>
+
+  <!-- Social Signals Section -->
+  <div class="data-section" id="socialSignalsSection">
+    <h2>Social Signals (X/Twitter)</h2>
+    <div class="info-item" id="twitterMentions"><strong>Recent Mentions (24h):</strong> <span class="loading-text">-</span></div>
+    <div class="info-item" id="twitterSentiment"><strong>Overall Sentiment:</strong> <span class="loading-text">N/A</span></div>
+  </div>
+  
+  <!-- Safety Info Section -->
+  <div class="data-section" id="safetyInfoSection">
+    <h2>Safety Info (Manual)</h2>
+    <div>
+      <label><input type="checkbox" id="renouncedOwnership"> Ownership Renounced?</label>
+    </div>
+    <div>
+      <label for="auditLink">Public Audit Link:</label>
+      <input type="text" id="auditLink" placeholder="Enter audit URL (if any)">
+    </div>
+  </div>
+
+  <!-- New Token Launches Section -->
+  <div class="data-section" id="newTokensSection">
+    <h2>New Token Launches (Birdeye) <button id="refreshNewTokensButton" title="Refresh List">🔄</button></h2>
+    <div id="newTokensList"><p class="loading-text">Loading new tokens...</p></div>
+  </div>
+
+  <!-- My Watchlist Section -->
+  <div class="data-section" id="watchlistSection">
+    <h2>My Watchlist</h2>
+    <div id="watchlistedTokens"><p class="loading-text">Loading watchlist...</p></div>
+  </div>
+
+  <!-- This old container can be removed if all data is moved to new sections -->
+  <div id="token-data-container" style="display:none;">
+    <!-- Legacy container, ensure it's hidden if not used -->
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
